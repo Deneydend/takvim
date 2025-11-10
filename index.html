@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALENDAR</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+   
+  <div class="burgergps" onclick="myFunction()">
+    <div id="navoff" class="navTrigger"> <i></i>  <i></i>  <i></i> </div>
+  </div>
+
+  <div id="solgraypanel" style="left: -350px;">
+    <div class="leave-inputs">
+      <h2 class="solbaslik">İZİN GÜN SÜRELERİ</h2>
+      <div class="leave-input" data-name="osman">
+        <label for="osman-leave">OSMAN:</label>
+        <input type="number" id="osman-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="kadir">
+        <label for="kadir-leave">KADİR:</label>
+        <input type="number" id="kadir-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="elif">
+        <label for="elif-leave">ELİF:</label>
+        <input type="number" id="elif-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="mustafa">
+        <label for="mustafa-leave">MUSTAFA:</label>
+        <input type="number" id="mustafa-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="bekir">
+        <label for="bekir-leave">BEKİR:</label>
+        <input type="number" id="bekir-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="merve">
+        <label for="merve-leave">MERVE:</label>
+        <input type="number" id="merve-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="hakan">
+        <label for="hakan-leave">HAKAN:</label>
+        <input type="number" id="hakan-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="yigit">
+        <label for="yigit-leave">YİĞİT:</label>
+        <input type="number" id="yigit-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="ilhan">
+        <label for="ilhan-leave">İLHAN:</label>
+        <input type="number" id="ilhan-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="bahar">
+        <label for="bahar-leave">BAHAR:</label>
+        <input type="number" id="bahar-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="seval">
+        <label for="seval-leave">SEVAL:</label>
+        <input type="number" id="seval-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+      <div class="leave-input" data-name="omer">
+        <label for="omer-leave">ÖMER:</label>
+        <input type="number" id="omer-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+
+      <div class="leave-input" data-name="tatil">
+        <label for="tatil-leave">TATİL:</label>
+        <input type="number" id="tatil-leave" value="0" step=".5">
+        <button onclick="sil(this);" class="delbut" tabindex="-1">SİL</button>
+      </div>
+
+
+      <button onclick="saveLeaveDays()">KAYDET</button>
+    </div>
+
+    <div class="container">
+      <h2 class="caldbbaslik">CalendarDB <br> Export or Import</h2>
+      <div id="drop-area" class="drop-area">
+        <p>Drag and drop your CalendarDB file here</p>
+
+      
+      <div class="export-import-buttons">
+        <button onclick="exportData()">VERİLERİ DIŞA AKTAR</button>
+        <input type="file" id="import-file" style="display: none;" onchange="importData(event)">
+        <button onclick="document.getElementById('import-file').click()">VERİLERİ İÇE AKTAR</button>
+      </div>
+
+    </div>
+
+    </div>
+
+    <div class="deltainer">
+      <h2 class="caldbbaslik">Delete All Data</h2>
+      <div class="export-import-buttons">
+        <button onclick="deleteallnamedata()">SÜRELERİ SİL</button>
+        <button onclick="deletealldatedata()">TARİHLERİ SİL</button>
+        <button onclick="deleteAllData()">TAMAMINI SİL</button>
+      </div>
+    </div>
+
+    <iframe src="https://www.etstur.com/Resmi-Tatil-Gunleri" style="height: 100vh; width: 100%;">  </iframe>
+
+
+  </div>
+
+    
+    
+
+    <h1 class="baslik" id="years"></h1>
+    <div id="year-selector" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%); background:#222; color:#fff; padding:20px; border-radius:10px; z-index:999;">
+      <input type="number" id="year-input" min="2000" max="2100" style="width:100px; font-size:20px;">
+      <button onclick="selectYear()">SEÇ</button>
+      <button onclick="closeYearSelector()">KAPAT</button>
+      <div id="year-list" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="parent">
+      <div class="top topleft">
+
+        <input type="checkbox" id="kontrol" checked>
+        <label class="flexmid" for="kontrol"> 🟡 </label>
+
+        
+        <input type="checkbox" id="osman" checked>
+        <label class="flexmid" for="osman"> OSMAN </label>
+        
+        <input type="checkbox" id="kadir" checked>
+        <label class="flexmid" for="kadir"> KADİR </label>
+        
+        <input type="checkbox" id="elif" checked>
+        <label class="flexmid" for="elif"> ELİF </label>
+        
+        <input type="checkbox" id="mustafa" checked>
+        <label class="flexmid" for="mustafa"> MUSTAFA </label>
+        
+        <input type="checkbox" id="bekir" checked>
+        <label class="flexmid" for="bekir"> BEKİR </label>
+        
+        <input type="checkbox" id="merve" checked>
+        <label class="flexmid" for="merve"> MERVE </label>
+        
+        <input type="checkbox" id="hakan" checked>
+        <label class="flexmid" for="hakan"> HAKAN </label>
+        
+        <input type="checkbox" id="yigit" checked>
+        <label class="flexmid" for="yigit"> YİĞİT </label>
+        
+        <input type="checkbox" id="ilhan" checked>
+        <label class="flexmid" for="ilhan"> İLHAN </label>
+        
+        <input type="checkbox" id="bahar" checked>
+        <label class="flexmid" for="bahar"> BAHAR </label>
+        
+        <input type="checkbox" id="seval" checked>
+        <label class="flexmid" for="seval"> SEVAL </label>
+        
+        <input type="checkbox" id="omer" checked>
+        <label class="flexmid" for="omer"> ÖMER </label>
+
+        <input type="checkbox" id="tatil" checked>
+        <label class="flexmid" for="tatil"> TATİL </label>
+        
+        
+      </div>
+
+      <div class="top topright">
+
+        <div class="remainingday">
+
+          <h3>KALAN İZİN GÜNLERİ</h3>
+
+          <div class="remainingday-input" id="remainingday-input">
+            <label for="current-remaining"></label>
+            <input type="text" id="current-remaining" value="0">
+          </div>
+   
+        </div>
+
+        <div class="custom-select">
+          <select id="name-select">
+              <option value="">SEÇİNİZ</option>
+              <option value="osman">OSMAN</option>
+              <option value="kadir">KADİR</option>
+              <option value="elif">ELİF</option>
+              <option value="mustafa">MUSTAFA</option>
+              <option value="bekir">BEKİR</option>
+              <option value="merve">MERVE</option>
+              <option value="hakan">HAKAN</option>
+              <option value="yigit">YİĞİT</option>
+              <option value="ilhan">İLHAN</option>
+              <option value="bahar">BAHAR</option>
+              <option value="seval">SEVAL</option>
+              <option value="omer">ÖMER</option>
+              <option value="tatil">TATİL</option>
+          </select>
+          
+          <div class="daytainer">
+            <input type="checkbox" id="day-input">
+            <label for="day-input">YARIM <br> GÜN</label>
+          </div>
+
+          <button onclick="saveLeaveDays()">KAYDET</button>  
+        </div>
+
+      </div>
+   
+    
+    <div class="div1 months"> </div>
+    <div class="div2 months"> </div>
+    <div class="div3 months"> </div>
+    <div class="div4 months"> </div>
+    <div class="div5 months"> </div>
+    <div class="div6 months"> </div>
+    <div class="div7 months"> </div>
+    <div class="div8 months"> </div>
+    <div class="div9 months"> </div>
+    <div class="div10 months"> </div>
+    <div class="div11 months"> </div>
+    <div class="div12 months"> </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+  
+</body>
+</html>
